@@ -24,17 +24,5 @@ var substitute = function (numbers, substitutions) {
     return String(number);
   }
 
-  return (function f (acc, remainingNumbers) {
-    if (remainingNumbers.length == 0) {
-      return acc;
-    } else {
-      next = substituteOne(remainingNumbers[0]);
-
-      if (remainingNumbers.length == 1) {
-        return acc + next;      
-      } else {
-        return f (acc + next + " ", remainingNumbers.slice(1));
-      }
-    }
-  })("", numbers);
+  return numbers.map(substituteOne).join(" ");
 };
