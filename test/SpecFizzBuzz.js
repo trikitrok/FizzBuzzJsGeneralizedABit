@@ -10,31 +10,25 @@ describe("FizzBuzz", function () {
     ]);
   });
 
-  it("returns empty string for an empty array", function () {
+  it("works for an empty array", function () {
     expect(fizzBuzzSubstitute([])).toBe("");
   });
 
-  it("returns 1 for [1]", function () {
+  it("returns same number for array with number not multiple of 3 or 5", function () {
     expect(fizzBuzzSubstitute([1])).toBe("1");
   });
 
-  it("returns Fizz for [3]", function () {
+  it("returns Fizz for an array with a multiple of 3", function () {
     expect(fizzBuzzSubstitute([3])).toBe("Fizz");
-  });
-
-  it("returns Fizz for [9]", function () {
     expect(fizzBuzzSubstitute([9])).toBe("Fizz");
   });
 
-  it("returns Buzz for [5]", function () {
+  it("returns Buzz for an array with a multiple of 5", function () {
     expect(fizzBuzzSubstitute([5])).toBe("Buzz");
-  });
-
-  it("returns Buzz for [25]", function () {
     expect(fizzBuzzSubstitute([25])).toBe("Buzz");
   });
 
-  it("returns FizzBuzz for [15]", function () {
+  it("returns FizzBuzz for an array with a multiple of both 3 and 5", function () {
     expect(fizzBuzzSubstitute([15])).toBe("FizzBuzz");
   });
 
@@ -52,7 +46,7 @@ describe("FizzKozz", function () {
         replacement: "Kozz"}
     ]);
 
-  it("uses substitute with different substitution rules", function () {
+  it("also works with different substitution rules", function () {
     expect(
       fizzKozzSubstitute([1, 2, 4, 6, 15])).toBe("1 Kozz Kozz FizzKozz Fizz");
   });
@@ -68,7 +62,7 @@ describe("FizzOddSeven", function () {
         replacement: "Seven"}
     ]);
 
-  it("uses substitute with different substitution rules", function () {
+  it("works with rules using any predicate on a number", function () {
     expect(
       fizzOddSevenSubstitute(
         [1, 2, 4, 6, 15, 7])).toBe("Odd 2 4 Fizz FizzOdd OddSeven");
