@@ -1,6 +1,9 @@
 var makeSubstitute = function (substitutionDescriptions) {
   
   var substituteOne = (function () {
+
+    var substitutions = [], i;
+
     function makeSubstitution (pred, replacement) {
       return function substituteNumber(acc, number) {
         if ( pred(number) ) {
@@ -10,12 +13,10 @@ var makeSubstitute = function (substitutionDescriptions) {
       };
     }
 
-    var substitutions = [], index;
-
-    for(index = 0; index < substitutionDescriptions.length; index++) {
-      substitutions.push( makeSubstitution(
-                            substitutionDescriptions[index].pred, 
-                            substitutionDescriptions[index].replacement));
+    for(i = 0; i < substitutionDescriptions.length; i++) {
+      substitutions.push(makeSubstitution(
+                          substitutionDescriptions[i].pred, 
+                          substitutionDescriptions[i].replacement));
     }
 
     return function (number) {
